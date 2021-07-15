@@ -11,6 +11,17 @@ namespace UserRegistration
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to validating User Registration using Regular Expression");
+            RegexExample regex = new RegexExample();
+            int option = Convert.ToInt32(Console.ReadLine());
+            switch(option)
+            {
+                case 1:
+                    regex.ValidatingFirstName();
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }
