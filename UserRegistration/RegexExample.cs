@@ -12,6 +12,7 @@ namespace UserRegistration
     /// UC2 - Validating the Last Name
     /// UC3 - Validating the EmailID
     /// UC4 - Validating the PhoneNumber
+    /// UC5 - Password with 8 minimum character
     /// </summary>
     class RegexExample
     {
@@ -86,6 +87,26 @@ namespace UserRegistration
                 else
                 {
                     Console.WriteLine(PhoneNumberInput[i] + " ----->InValid");
+                }
+
+            }
+        }
+
+        public void ValidatingPassWord()
+        {
+            string[] passwordInput = { "Vedhashni1062", "gayatri", "ved123" };
+            string passwordPattern = @"[a-z,A-Z,0-9]{8,}$";
+            Regex regex = new Regex(passwordPattern);
+            for (int i = 0; i < passwordInput.Length; i++)
+            {
+                bool result = regex.IsMatch(passwordInput[i]);
+                if (result)
+                {
+                    Console.WriteLine(passwordInput[i] + " ----->Valid");
+                }
+                else
+                {
+                    Console.WriteLine(passwordInput[i] + " ----->InValid");
                 }
 
             }

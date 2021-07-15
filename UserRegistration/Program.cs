@@ -31,6 +31,10 @@ namespace UserRegistration
                     regex.ValidatingPhoneNumber();
                     break;
 
+                case 5:
+                    regex.ValidatingPassWord();
+                    break;
+
                 default:
                     break;
             }
