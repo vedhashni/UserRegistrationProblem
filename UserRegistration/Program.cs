@@ -27,6 +27,10 @@ namespace UserRegistration
                     regex.ValidatingEmailId();
                     break;
 
+                case 4:
+                    regex.ValidatingPhoneNumber();
+                    break;
+
                 default:
                     break;
             }

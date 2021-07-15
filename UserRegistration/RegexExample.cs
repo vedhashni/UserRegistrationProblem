@@ -10,6 +10,8 @@ namespace UserRegistration
     /// <summary>
     /// UC1 - Validating the First Name
     /// UC2 - Validating the Last Name
+    /// UC3 - Validating the EmailID
+    /// UC4 - Validating the PhoneNumber
     /// </summary>
     class RegexExample
     {
@@ -67,6 +69,26 @@ namespace UserRegistration
                 }
             }
 
+        }
+
+        public void ValidatingPhoneNumber()
+        {
+            string[] PhoneNumberInput = { "91 9843801062", " 91 8939620291", "919894571810", "B789023", "98#1234" };
+            string PhoneNumberPattern = @"^[0-9]+[\s]+[0-9]{10}$";
+            Regex regex = new Regex(PhoneNumberPattern);
+            for (int i = 0; i < PhoneNumberInput.Length; i++)
+            {
+                bool validnum = regex.IsMatch(PhoneNumberInput[i]);
+                if (validnum)
+                {
+                    Console.WriteLine(PhoneNumberInput[i] + " ----->Valid");
+                }
+                else
+                {
+                    Console.WriteLine(PhoneNumberInput[i] + " ----->InValid");
+                }
+
+            }
         }
     }
 }
