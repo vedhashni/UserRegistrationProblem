@@ -19,6 +19,10 @@ namespace UserRegistration
                     regex.ValidatingFirstName();
                     break;
 
+                case 2:
+                    regex.ValidatingLastName();
+                    break;
+
                 default:
                     break;
             }
