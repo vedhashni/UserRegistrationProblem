@@ -13,6 +13,7 @@ namespace UserRegistration
     /// UC3 - Validating the EmailID
     /// UC4 - Validating the PhoneNumber
     /// UC5 - Password with 8 minimum character
+    /// UC6 - Atleast one uppercase in 8 min char
     /// </summary>
     class RegexExample
     {
@@ -94,8 +95,8 @@ namespace UserRegistration
 
         public void ValidatingPassWord()
         {
-            string[] passwordInput = { "Vedhashni1062", "gayatri", "ved123" };
-            string passwordPattern = @"[a-z,A-Z,0-9]{8,}$";
+            string[] passwordInput = { "Vedhashni1062", "Gayatri", "vEd123" };
+            string passwordPattern = @"^(?=.*[A-Z]).{8,}$";
             Regex regex = new Regex(passwordPattern);
             for (int i = 0; i < passwordInput.Length; i++)
             {
