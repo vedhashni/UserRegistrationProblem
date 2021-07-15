@@ -23,6 +23,10 @@ namespace UserRegistration
                     regex.ValidatingLastName();
                     break;
 
+                case 3:
+                    regex.ValidatingEmailId();
+                    break;
+
                 default:
                     break;
             }
