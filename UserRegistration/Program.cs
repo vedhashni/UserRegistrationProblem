@@ -16,23 +16,33 @@ namespace UserRegistration
             switch(option)
             {
                 case 1:
-                    regex.ValidatingFirstName();
+                    Console.WriteLine("Enter the First Name");
+                    string input = Console.ReadLine();
+                    RegexExample.ValidatingFirstName(input);
                     break;
 
                 case 2:
-                    regex.ValidatingLastName();
+                    Console.WriteLine("Enter the Last Name");
+                    string input1 = Console.ReadLine();
+                    RegexExample.ValidatingLastName(input1);
                     break;
 
                 case 3:
-                    regex.ValidatingEmailId();
+                    Console.WriteLine("Enter Email Id");
+                    string input2 = Console.ReadLine();
+                    RegexExample.ValidatingEmailId(input2);
                     break;
 
                 case 4:
-                    regex.ValidatingPhoneNumber();
+                    Console.WriteLine("Enter Phone Number");
+                    string input3 = Console.ReadLine();
+                    RegexExample.ValidatingPhoneNumber(input3);
                     break;
 
                 case 5:
-                    regex.ValidatingPassWord();
+                    Console.WriteLine("Enter Password");
+                    string input4 = Console.ReadLine();
+                    RegexExample.ValidatingPassWord(input4);
                     break;
 
                 default:

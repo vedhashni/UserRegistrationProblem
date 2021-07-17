@@ -17,46 +17,50 @@ namespace UserRegistration
     /// UC7 - Atleast one digit in 8 min char
     /// UC8 - Atleast one special character in 8 min char
     /// </summary>
-    class RegexExample
+    public class RegexExample
     {
-        string userpattern = "^[A-Z][a-z]{2,}$";
-        string[] EmailInput = { "abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com", "abc", "abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com", "abc()*@gmail.com", "abc@%*.com", "abc..2002@gmail.com", "abc.@gmail.com", "abc@abc@gmail.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au" };
-        string pattern = (@"^[a-zA-Z0-9]+([\.\+\-][a-zA-Z0-9]+)?@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,}(\.[a-zA-Z]+)?)$");
-        public void ValidatingFirstName()
+         static string userpattern = "^[A-Z][a-z]{2,}$";
+        static string[] EmailInput = { "abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com", "abc", "abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com", "abc()*@gmail.com", "abc@%*.com", "abc..2002@gmail.com", "abc.@gmail.com", "abc@abc@gmail.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au" };
+        static string pattern = (@"^[a-zA-Z0-9]+([\.\+\-][a-zA-Z0-9]+)?@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,}(\.[a-zA-Z]+)?)$");
+        public static string ValidatingFirstName(String input)
         {
             Console.WriteLine("Validating the First Name");
             Regex regex = new Regex(userpattern);
-            Console.WriteLine("Enter the First Name");
-            string input = Console.ReadLine();
+            //Console.WriteLine("Enter the First Name");
+            //string input = Console.ReadLine();
             bool result = regex.IsMatch(input);
             if (result)
             {
                 Console.WriteLine("Valid");
+                return input;
             }
             else
             {
                 Console.WriteLine("Invalid");
             }
+            return default;
         }
 
-        public void ValidatingLastName()
+        public static string ValidatingLastName(String input)
         {
             Console.WriteLine("Validating the Last Name");
             Regex regex = new Regex(userpattern);
-            Console.WriteLine("Enter the Last Name");
-            string input = Console.ReadLine();
+            //Console.WriteLine("Enter the Last Name");
+            //string input = Console.ReadLine();
             bool result = regex.IsMatch(input);
             if (result)
             {
                 Console.WriteLine("Valid");
+                return input;
             }
             else
             {
                 Console.WriteLine("Invalid");
             }
+            return default;
         }
 
-        public void ValidatingEmailId()
+        public static string ValidatingEmailId(String input)
         {
             
             Regex regex = new Regex(pattern);
@@ -66,16 +70,19 @@ namespace UserRegistration
                 if (validemail)
                 {
                     Console.WriteLine(EmailInput[i] + " ----->Valid");
+                    return input;
                 }
                 else
                 {
                     Console.WriteLine(EmailInput[i] + " ----->Invalid");
                 }
+                
             }
+            return default;
 
         }
 
-        public void ValidatingPhoneNumber()
+        public static String ValidatingPhoneNumber(String input)
         {
             string[] PhoneNumberInput = { "91 9843801062", " 91 8939620291", "919894571810", "B789023", "98#1234" };
             string PhoneNumberPattern = @"^[0-9]+[\s]+[0-9]{10}$";
@@ -86,6 +93,7 @@ namespace UserRegistration
                 if (validnum)
                 {
                     Console.WriteLine(PhoneNumberInput[i] + " ----->Valid");
+                    return input;
                 }
                 else
                 {
@@ -93,9 +101,10 @@ namespace UserRegistration
                 }
 
             }
+            return default;
         }
 
-        public void ValidatingPassWord()
+        public static string ValidatingPassWord(String input)
         {
             string[] passwordInput = { "Vedhashni#1062", "Gayatri@10", "vE_d123" };
             string passwordPattern = @"(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?!.*[<>`])(?=[^.,:;'!@#$%^&*_+=|(){}[?\-\]\/\\]*[.,:;'!@#$%^&*_+=|(){}[?\-\]\/\\][^.,:;'!@#$%^&*_+=|(){}[?\-\]\/\\]*$).{8,}$";
@@ -106,6 +115,7 @@ namespace UserRegistration
                 if (result)
                 {
                     Console.WriteLine(passwordInput[i] + " ----->Valid");
+                    return input;
                 }
                 else
                 {
@@ -113,6 +123,7 @@ namespace UserRegistration
                 }
 
             }
+            return default;
         }
     }
 }
