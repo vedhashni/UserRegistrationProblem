@@ -13,9 +13,16 @@ namespace TestCaseValidation
         [DataRow("v", null)]
         public void ValidateFirstname(string a, string expected)
         {
+            try
+            {
+                var actual = RegexExample.ValidatingFirstName(a);
+                Assert.AreEqual(expected, actual);
+            }
+            catch (CustomException actual)
+            {
+                Assert.AreEqual(expected, actual.message);
+            }
 
-            var actual = RegexExample.ValidatingFirstName(a);
-            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -25,9 +32,16 @@ namespace TestCaseValidation
 
         public void ValidateLastname(string a, string expected)
         {
+            try
+            {
+                var actual = RegexExample.ValidatingLastName(a);
+                Assert.AreEqual(expected, actual);
+            }
+            catch (CustomException actual)
+            {
+                Assert.AreEqual(expected, actual.message);
+            }
 
-            var actual = RegexExample.ValidatingLastName(a);
-            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -40,9 +54,16 @@ namespace TestCaseValidation
 
         public void ValidateEmailId(string a, string expected)
         {
+            try
+            {
+                var actual = RegexExample.ValidatingEmailId(a);
+                Assert.AreEqual(expected, actual);
+            }
+            catch (CustomException actual)
+            {
+                Assert.AreEqual(expected, actual.message);
+            }
 
-            var actual = RegexExample.ValidatingEmailId(a);
-            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -52,9 +73,16 @@ namespace TestCaseValidation
 
         public void ValidatePhoneNumber(string a, string expected)
         {
+            try
+            {
+                var actual = RegexExample.ValidatingPhoneNumber(a);
+                Assert.AreEqual(expected, actual);
+            }
+            catch (CustomException actual)
+            {
+                Assert.AreEqual(expected, actual.message);
+            }
 
-            var actual = RegexExample.ValidatingPhoneNumber(a);
-            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -65,9 +93,16 @@ namespace TestCaseValidation
 
         public void ValidatePassword(string a, string expected)
         {
+            try
+            {
+                var actual = RegexExample.ValidatingPassWord(a);
+                Assert.AreEqual(expected, actual);
+            }
+            catch (CustomException actual)
+            {
+                Assert.AreEqual(expected, actual.message);
+            }
 
-            var actual = RegexExample.ValidatingPassWord(a);
-            Assert.AreEqual(expected, actual);
         }
     }
 }

@@ -29,16 +29,31 @@ namespace UserRegistration
             //Console.WriteLine("Enter the First Name");
             //string input = Console.ReadLine();
             bool result = regex.IsMatch(input);
-            if (result)
+            try
             {
-                Console.WriteLine("Valid");
-                return input;
+                if (input.Equals(""))
+                {
+                    throw new CustomException(CustomException.ExceptionType.EMPTY_MESSAGE, "First name should not be empty");
+                }
+                if (input.Equals(null))
+                {
+                    throw new CustomException(CustomException.ExceptionType.NULL_MESSAGE, "Last name should not be null");
+                }
+                if (result)
+                {
+                    Console.WriteLine("Valid");
+                    return input;
+                }
+                else
+                {
+                    throw new CustomException(CustomException.ExceptionType.INVALID_MESSAGE, "First should be valid");
+                }
             }
-            else
+            catch (NullReferenceException ex)
             {
-                Console.WriteLine("Invalid");
+                return ex.Message;
             }
-            return default;
+            
         }
 
         public static string ValidatingLastName(String input)
@@ -48,38 +63,69 @@ namespace UserRegistration
             //Console.WriteLine("Enter the Last Name");
             //string input = Console.ReadLine();
             bool result = regex.IsMatch(input);
-            if (result)
+            try
             {
-                Console.WriteLine("Valid");
-                return input;
+                if (input.Equals(""))
+                {
+                    throw new CustomException(CustomException.ExceptionType.EMPTY_MESSAGE, "Last name should not be empty");
+                }
+                if (input.Equals(null))
+                {
+                    throw new CustomException(CustomException.ExceptionType.NULL_MESSAGE, "Last name should not be null");
+                }
+                if (result)
+                {
+                    Console.WriteLine("Valid");
+                    return input;
+                }
+                else
+                {
+                    throw new CustomException(CustomException.ExceptionType.INVALID_MESSAGE, "Last name should be valid");
+                }
             }
-            else
+            catch (NullReferenceException ex)
             {
-                Console.WriteLine("Invalid");
+                
+                return ex.Message;
             }
-            return default;
+            
         }
 
         public static string ValidatingEmailId(String input)
         {
             
             Regex regex = new Regex(pattern);
-            for (int i = 0; i < EmailInput.Length; i++)
-            {
-                bool validemail = regex.IsMatch(EmailInput[i]);
-                if (validemail)
+            //for (int i = 0; i < EmailInput.Length; i++)
+            //{
+                bool validemail = regex.IsMatch(input);
+                try
                 {
-                    Console.WriteLine(EmailInput[i] + " ----->Valid");
-                    return input;
+                    if (input.Equals(""))
+                    {
+                        throw new CustomException(CustomException.ExceptionType.EMPTY_MESSAGE, "Email Id should not be empty");
+                    }
+                    if (input.Equals(null))
+                    {
+                        throw new CustomException(CustomException.ExceptionType.NULL_MESSAGE, "Email Id should not be null");
+                    }
+                    if (validemail)
+                    {
+                        Console.WriteLine(input + " ----->Valid");
+                        return input;
+                    }
+                    else
+                    {
+                        throw new CustomException(CustomException.ExceptionType.INVALID_MESSAGE, "Email Id should be valid");
+                    }
                 }
-                else
+                catch (NullReferenceException ex)
                 {
-                    Console.WriteLine(EmailInput[i] + " ----->Invalid");
+                    
+                    return ex.Message;
                 }
-                
-            }
-            return default;
 
+            
+           
         }
 
         public static String ValidatingPhoneNumber(String input)
@@ -87,43 +133,68 @@ namespace UserRegistration
             string[] PhoneNumberInput = { "91 9843801062", " 91 8939620291", "919894571810", "B789023", "98#1234" };
             string PhoneNumberPattern = @"^[0-9]+[\s]+[0-9]{10}$";
             Regex regex = new Regex(PhoneNumberPattern);
-            for (int i = 0; i < PhoneNumberInput.Length; i++)
-            {
-                bool validnum = regex.IsMatch(PhoneNumberInput[i]);
-                if (validnum)
+            
+                bool validnum = regex.IsMatch(input);
+                try
                 {
-                    Console.WriteLine(PhoneNumberInput[i] + " ----->Valid");
-                    return input;
-                }
-                else
-                {
-                    Console.WriteLine(PhoneNumberInput[i] + " ----->InValid");
-                }
+                    if (input.Equals(""))
+                    {
+                        throw new CustomException(CustomException.ExceptionType.EMPTY_MESSAGE, "Phone number should not be empty");
+                    }
+                    if (input.Equals(null))
+                    {
+                        throw new CustomException(CustomException.ExceptionType.NULL_MESSAGE, "Phone number should not be null");
+                    }
+                    if (validnum)
+                    {
+                        Console.WriteLine(input + " ----->Valid");
+                        return input;
+                    }
+                    else
+                    {
+                        throw new CustomException(CustomException.ExceptionType.INVALID_MESSAGE, "Phone number should be valid");
+                    }
 
             }
-            return default;
-        }
+                catch (NullReferenceException ex)
+                {
+                    return ex.Message;
+                }
+            }
 
         public static string ValidatingPassWord(String input)
         {
             string[] passwordInput = { "Vedhashni#1062", "Gayatri@10", "vE_d123" };
             string passwordPattern = @"(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?!.*[<>`])(?=[^.,:;'!@#$%^&*_+=|(){}[?\-\]\/\\]*[.,:;'!@#$%^&*_+=|(){}[?\-\]\/\\][^.,:;'!@#$%^&*_+=|(){}[?\-\]\/\\]*$).{8,}$";
             Regex regex = new Regex(passwordPattern);
-            for (int i = 0; i < passwordInput.Length; i++)
+            
+                bool result = regex.IsMatch(input);
+            try
             {
-                bool result = regex.IsMatch(passwordInput[i]);
+                if (input.Equals(""))
+                {
+                    throw new CustomException(CustomException.ExceptionType.EMPTY_MESSAGE, "Password should not be empty");
+                }
+                if (input.Equals(null))
+                {
+                    throw new CustomException(CustomException.ExceptionType.NULL_MESSAGE, "Password should not be null");
+                }
                 if (result)
                 {
-                    Console.WriteLine(passwordInput[i] + " ----->Valid");
+                    Console.WriteLine(input + " ----->Valid");
                     return input;
                 }
                 else
                 {
-                    Console.WriteLine(passwordInput[i] + " ----->InValid");
+                    throw new CustomException(CustomException.ExceptionType.INVALID_MESSAGE, "Passwordshould be valid");
                 }
 
             }
-            return default;
+            catch (NullReferenceException ex)
+            {
+                return ex.Message;
+            }
+
         }
     }
 }
