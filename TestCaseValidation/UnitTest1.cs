@@ -104,5 +104,91 @@ namespace TestCaseValidation
             }
 
         }
+
+        [TestMethod]
+        public void Test_Method_Object_Creation_RegexSample()
+        {
+            object expected = new RegexExample();
+            RegistrationFactory factory = new RegistrationFactory();
+            object actual = factory.CreateObjectForRegexExample("UserRegistration.RegexSample", "RegexSample");
+            expected.Equals(actual);
+
+        }
+        //Test for parameterconstructor invoked using object created
+        [TestMethod]
+        public void Test_Method_Parameteized_Constructor()
+        {
+            object expected = new RegexExample("RegularExpression");
+            RegistrationFactory factory = new RegistrationFactory();
+            object actual = factory.CreateParameterizedConstructor("UserRegistration.RegexSample", "RegexSample", "RegularExpression");
+            actual.Equals(expected);
+        }
+
+        [TestMethod]
+        public void Reflection_Return_Default_Constructor_No_Constructor_Found()
+        {
+            string expected = "No constructor found";
+            object obj = null;
+            try
+            {
+                RegistrationFactory factory = new RegistrationFactory();
+                obj = factory.CreateObjectForRegexExample("UserRegistration.RegexSample", "RegexSam");
+
+            }
+            catch (CustomException actual)
+            {
+                Assert.AreEqual(expected, actual.Message);
+            }
+        }
+        [TestMethod]
+        public void Reflection_Return_Default_Constructor_No_Class_Found()
+        {
+            string expected = "No class found";
+            object obj = null;
+            try
+            {
+                RegistrationFactory factory = new RegistrationFactory();
+                obj = factory.CreateObjectForRegexExample("UserRegistration.RegexSae", "RegexSample");
+
+            }
+            catch (CustomException actual)
+            {
+                Assert.AreEqual(expected, actual.Message);
+            }
+        }
+        [TestMethod]
+        public void Reflection_Return_Parameterized_Class_Invalid()
+        {
+            string message = "Regular Expression";
+            string expected = "No class found";
+            object actual = null;
+            try
+            {
+                RegistrationFactory factory = new RegistrationFactory();
+                actual = factory.CreateParameterizedConstructor("UserRegistration.RegexSae", "RegexSample", message);
+
+            }
+            catch (CustomException actual1)
+            {
+                Assert.AreEqual(expected, actual1.Message);
+            }
+        }
+        [TestMethod]
+        public void Reflection_Return_Parameterized_Constructor_Invalid()
+        {
+            string message = "Regular Expression";
+            string expected = "No constructor found";
+            object actual = null;
+            try
+            {
+                RegistrationFactory factory = new RegistrationFactory();
+                actual = factory.CreateParameterizedConstructor("UserRegistration.RegexSample", "RegexSam", message);
+
+            }
+            catch (CustomException actual1)
+            {
+                Assert.AreEqual(expected, actual1.Message);
+            }
+        }
     }
 }
