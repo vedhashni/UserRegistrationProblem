@@ -7,10 +7,10 @@ namespace TestCaseValidation
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
+        [DataTestMethod]
         [DataRow("Vedhashni", "Vedhashni")]
         [DataRow("Dev", "Dev")]
-        [DataRow("v", null)]
+        [DataRow("Ve", null)]
         public void ValidateFirstname(string a, string expected)
         {
             try
@@ -25,7 +25,7 @@ namespace TestCaseValidation
 
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow("Gayatri", "Gayatri")]
         [DataRow("Gaya", "Gaya")]
         [DataRow("Ga", null)]
@@ -44,7 +44,7 @@ namespace TestCaseValidation
 
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow("abc@yahoo.com", "abc@yahoo.com")]
         [DataRow("abc-100@yahoo.com", "abc-100@yahoo.com")]
         [DataRow("abc.100@yahoo.com", "abc.100@yahoo.com")]
@@ -66,7 +66,7 @@ namespace TestCaseValidation
 
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow("91 9843801062", "91 9843801062")]
         [DataRow("B3456", null)]
         [DataRow("98232@13", null)]
@@ -85,7 +85,7 @@ namespace TestCaseValidation
 
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow("Vedhashni#12", "Vedhashni#12")]
         [DataRow("Gayatri@14", "Gayatri@14")]
         [DataRow("v_Ed$1", null)]
@@ -120,7 +120,7 @@ namespace TestCaseValidation
         {
             object expected = new RegexExample("RegularExpression");
             RegistrationFactory factory = new RegistrationFactory();
-            object actual = factory.CreateParameterizedConstructor("UserRegistration.RegexSample", "RegexSample", "RegularExpression");
+            object actual = factory.CreateParameterizedConstructor("UserRegistration.RegexExample", "RegexExample", "RegularExpression");
             actual.Equals(expected);
         }
 

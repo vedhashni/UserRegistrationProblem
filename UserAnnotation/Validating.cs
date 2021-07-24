@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UserAnnotation
 {
-    class Validating
+    public class Validating
     {
         Annotation annotation = new Annotation();
         public void GetInput()
